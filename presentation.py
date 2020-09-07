@@ -14,7 +14,7 @@ class Presentation(showtmux.WithMdp, showtmux.Presentation):
         self.wait("Enter tmux and explore the list - Staat der Nederlands is in there for a good example")
         
         self.wait("Let's look at how I trust codam.com")
-        self.raw("openssl s_client codam.com:443 | less")
+        self.raw("openssl s_client adatechschool.fr:443 | less")
         self.wait("run it")
         self.cmd(" ")
         self.wait("Enter tmux and scroll back up to take a look")

@@ -396,7 +396,7 @@ Alice and Bob wants to establish a shared secret.
    p is a prime, let's say 23.
    g is a primitive root modulo p, let's say 5.
 
-p and q can be picked long in advance for everyone publicly.
+p and g can be picked long in advance for everyone publicly.
 
 For example, these real constants for 2048bit DSA keys:
 
