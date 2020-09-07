@@ -138,6 +138,9 @@ Great if:
 Both these ciphers are example of symmetric encryption algorithms: the
 sender and the receiver hold a *shared secret*.
 
+More complex examples of heavily used symmetric ciphers: AES,
+Blowfish, Twofish, ...
+
 ------------------------------------
 
 -> # Asymmetric cryptography <-
@@ -288,7 +291,7 @@ In this scenario, we say we have a "signing" key and a "verification" key.
 -> # Signing <-
 ========================
 
-Fortunately, we can use any asymmetric algorithm for signing.
+Fortunately, we can use an asymmetric algorithm for signing.
 
 1. Generate a second public/private key pair.
 2. Share the _private_ part, keep the _public_ part.
@@ -328,7 +331,7 @@ Introducing: *Certificate Authorities* (CA).
 * They *sign* a document that says:
 
 > Public key 1234abcd... belongs to Uriel Corfa
-> Signed by: LetsEncrypt.org
+> Signed by: SomeCertificateAuthority.com
 
 That document is called a certificate.
 
