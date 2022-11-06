@@ -1,8 +1,8 @@
 %title: A quick intro to asymmetric cryptography
 %author: Uriel Corfa
-%date: 2020-07-15
+%date: 2022-10-26
 
-Hi, let's talk about crypto.
+Hi, let's talk about cryptography.
 
 We won't be using much math today.
 
@@ -13,6 +13,28 @@ We won't be using much math today.
 
 The views and opinions expressed in this presentation are my own, not
 those of my employer.
+
+------------------------------------
+
+-> # What this talk is about <-
+========================
+
+Cryptography is everywhere.
+
+We all have an intuition about it.
+
+------------------------------------
+
+-> # What this talk is about <-
+========================
+
+Cryptography is everywhere
+
+We all have an intuition about it
+
+How can we talk to a website we've never met, securely?
+
+Math is **weird** and we can use that to our advantage
 
 ------------------------------------
 
@@ -48,8 +70,32 @@ scientists break Germany's Enigma machine
 -> ↓ ↓ ↓ ↓ ↓     ↓ ↓ ↓ <-
 -> B C D E F ... Y Z A <-
 
--> SYMMETRIC CRYPTOGRAPHY <-
--> TZNNFUSJD DSZQUPHSBQIZ <-
+-> SUBSTITUTION CIPHER <-
+-> TVCTUJUVUJPO DJQIFS <-
+
+------------------------------------
+
+-> # Substitution cipher <-
+========================
+
+-> A B C D E ... X Y Z <-
+-> ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ <-
+-> B C D E F ... Y Z A <-
+
+-> SUBSTITUTION CIPHER <-
+-> TVCTUJUVUJPO DJQIFS <-
+
+-> TVCTUJUVUJPO DJQIFS <-
+-> SUBSTITUTION CIPHER <-
+
+------------------------------------
+
+-> # Substitution cipher <-
+========================
+
+Easy to understand, easy to use.
+
+Easy to break.
 
 ------------------------------------
 
@@ -60,7 +106,7 @@ scientists break Germany's Enigma machine
 ->   0 | 0 | 1 <-
 ->   1 | 1 | 0 <-
 
-n XOR x XOR x == n
+(n XOR x) XOR x == n
 
 ------------------------------------
 
@@ -270,7 +316,7 @@ But of course, anyone can give you a public key and pretend to be me.
 And anyone can use my public key and send me messages and pretend to
 be you.
 
-We have *confidentiality* but we need *authenticity*.
+We have *confidentiality* but we need *authentication*.
 
 ------------------------------------
 
@@ -284,7 +330,7 @@ Fortunately, we can use any asymmetric algorithm for signing.
 3. Only I can encrypt messages with this key, but anyone can decrypt them!
 4. So if you can decrypt a message using this key, you know it's from me.
 
-In this scenario, we say we have a "signing" key and a "verification" key.
+In this scenario, we say we have a *signing* key and a *verification* key.
 
 ------------------------------------
 
@@ -298,7 +344,7 @@ Fortunately, we can use an asymmetric algorithm for signing.
 3. Only I can encrypt messages with this key, but anyone can decrypt them!
 4. So if you can decrypt a message using this key, you know it's from me.
 
-In this scenario, we say we have a "signing" key and a "verification" key.
+In this scenario, we say we have a *signing* key and a *verification* key.
 
 With RSA, you don't actually need to generate a new key, you can use
 *d* to sign and *e* to verify.
@@ -313,7 +359,7 @@ Now, if I have your public key, I can:
 * *Encrypt* messages to you
 * *Authenticate* messages from you
 
-How do I know I have your public key, and not someone else?
+How do I know I have your public key, and not someone else's?
 
 We could meet in person to echange keys.
 
@@ -344,35 +390,28 @@ Demo time!
 
 ------------------------------------
 
--> # Go further <-
+-> # Why most crypto is still symmetric <-
 ========================
 
-* GPG: generate your own personal keypair, use it for email, to sign
-  Git commits or binaries you release
-   * https://gnupg.org/
-* Install a webserver, and get it a public certificate
-   * https://letsencrypt.org/getting-started
-* Install a decentralized Matrix instant messaging server and enjoy
-  managing keys
-   * https://matrix.org
-* Read Bruce Schneier
-   * https://www.schneier.com/
-   * _Cryptography Engineering_
+Asymmetric cryptography is very cool.
 
-------------------------------------
+It's also very expensive to use.
 
--> # A word of warning <-
-========================
-
-Do not roll your own crypto!
-
-Use abstractions. Trust cryptographers. Don't trust random people on
-the Internet. Read Bruce Schneier.
+We can use *asymmetric crypto* to negotiate a *shared secret*.
 
 -----------------------------------
 
--> # Questions ? <-
+-> # The Diffie-Hellman key exchange <-
 ========================
+
+Asymmetric cryptography is expensive
+
+We can use *asymmetric crypto* to negotiate a *shared secret*
+
+We could simply use RSA to establish a channel, generate a secret key,
+share it over that channel, and switch to AES
+
+But we don't need to!
 
 -----------------------------------
 
@@ -465,3 +504,34 @@ Alice and Bob share a secret, S=18.
 Someone who listens has Pa and Pb but not a and b, which Alice and Bob
 kept secret, and can't derive S.
 
+------------------------------------
+
+-> # Go further <-
+========================
+
+* GPG: generate your own personal keypair, use it for email, to sign
+  Git commits or binaries you release
+   * https://gnupg.org/
+* Install a webserver, and get it a public certificate
+   * https://letsencrypt.org/getting-started
+* Install a decentralized Matrix instant messaging server and enjoy
+  managing keys
+   * https://matrix.org
+* Read Bruce Schneier
+   * https://www.schneier.com/
+   * _Cryptography Engineering_
+
+------------------------------------
+
+-> # A word of warning <-
+========================
+
+Do not roll your own crypto!
+
+Use abstractions. Trust cryptographers. Don't trust random people on
+the Internet. Read Bruce Schneier.
+
+-----------------------------------
+
+-> # Questions ? <-
+========================
